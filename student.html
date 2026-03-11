@@ -8,22 +8,22 @@
 <style>
 :root{--bg:#06090f;--bg2:#0b1020;--bg3:#111827;--bg4:#1a2540;--orange:#FF6B35;--gold:#F5C842;--blue:#3B7FE8;--green:#1DB87A;--red:#E8455A;--text:#F0F4FF;--t2:#A0AABE;--t3:#5A6880;--b:rgba(255,255,255,0.08);--b2:rgba(255,255,255,0.14);--go:0 0 20px rgba(255,107,53,0.35);--gg:0 0 20px rgba(245,200,66,0.35);--r:14px;--rs:10px}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Barlow Condensed',sans-serif;overflow-x:hidden}
+html,body{background:var(--bg);color:var(--text);font-family:'Barlow Condensed',sans-serif;overflow-x:hidden}
 body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 /* HEADER */
-#hdr{background:linear-gradient(135deg,#0a1020,#0d1530);border-bottom:2px solid var(--orange);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-shrink:0}
+#hdr{background:linear-gradient(135deg,#0a1020,#0d1530);border-bottom:2px solid var(--orange);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-shrink:0;position:sticky;top:0;z-index:100}
 .ht{font-family:'Russo One',sans-serif;font-size:13px;letter-spacing:1px}.ht span{color:var(--orange)}
 .badge{font-family:'Russo One',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:20px;white-space:nowrap}
 .bo{background:rgba(255,107,53,0.15);border:1px solid var(--orange);color:var(--orange)}
 .bb{background:rgba(59,127,232,0.15);border:1px solid var(--blue);color:var(--blue)}
 .bg{background:rgba(29,184,122,0.15);border:1px solid var(--green);color:var(--green)}
 /* PHASE BAR */
-#phasebar{display:flex;gap:3px;padding:8px 14px;background:var(--bg2);border-bottom:1px solid var(--b);flex-shrink:0}
+#phasebar{display:flex;gap:3px;padding:8px 14px;background:var(--bg2);border-bottom:1px solid var(--b);flex-shrink:0;position:sticky;top:46px;z-index:99}
 .pb-step{flex:1;height:3px;border-radius:2px;background:var(--b2);transition:background 0.4s}
 .pb-step.active{background:var(--orange)}
 .pb-step.done{background:var(--green)}
-/* MAIN */
-#main{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px;padding-bottom:28px}
+/* MAIN — scrolls freely, never clips */
+#main{flex:1;padding:14px;display:flex;flex-direction:column;gap:12px;padding-bottom:40px}
 /* WAITING */
 .wait-screen{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;padding:24px 16px;min-height:280px}
 .wait-icon{font-size:56px;animation:pulse 2s ease-in-out infinite}
