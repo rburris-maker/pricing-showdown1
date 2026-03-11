@@ -268,7 +268,11 @@ ws.onmessage = e => { S = JSON.parse(e.data); render(); };
 ws.onclose   = () => showToast('⚠️ Disconnected from server — refresh to reconnect','#EF4444');
 ws.onerror   = () => showToast('⚠️ Connection error','#EF4444');
 function send(msg) { if (ws.readyState===1) ws.send(JSON.stringify(msg)); }
-function action(a) { send({ type:'action', action:a }); }
+function action(a) {
+  // Immediately disable all action buttons to prevent double-clicks
+  document.querySelectorAll('#tc button').forEach(b => b.disabled = true);
+  send({ type:'action', action:a });
+}
 
 // ── RENDER DISPATCH ────────────────────────────────────────────
 function render() {

@@ -209,7 +209,8 @@ ws.onmessage = e => {
   S = JSON.parse(e.data);
   if(S.myName) myName=S.myName;
   if(S.myTeamId) myTeamId=S.myTeamId;
-  if(S.myVote) myVote=S.myVote;
+  // Always sync vote from server — this clears it when the server resets for a new round
+  myVote = S.myVote || null;
   if(myName&&myTeamId) joined=true;
   render();
 };

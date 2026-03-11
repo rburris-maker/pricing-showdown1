@@ -184,6 +184,8 @@ function moveNext() {
   else if (G.currentRound<G.bracket.length-1) { G.currentRound++; G.currentMatchupIdx=0; }
   else { G.phase='champion'; return; }
   G.phase='matchup'; G.activeCondition=null; G.lastResult=null;
+  // Always wipe votes when entering a new matchup
+  for (const s of students.values()) s.vote = null;
 }
 
 // ================================================================
@@ -356,7 +358,6 @@ function actionRunSimulation() {
 
 function actionNextMatchup() {
   moveNext();
-  for (const s of students.values()) s.vote = null;
   broadcast();
 }
 
