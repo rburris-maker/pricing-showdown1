@@ -228,7 +228,7 @@ option{background:var(--bg3)}
     <div style="display:flex;align-items:center;gap:9px;"><span style="font-size:22px">🏆</span><div class="ht">MARCH MADNESS: <span>PRICING SHOWDOWN</span></div></div>
     <div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap;">
       <div class="badge bo" id="rdBadge">LOBBY</div>
-      <div class="badge bb" id="phBadge">SETUP</div>
+      <div class="badge bb" id="phBadge" style="cursor:pointer" onclick="showSetupModal()">SETUP</div>
       <div class="badge bg" id="stBadge">0 STUDENTS</div>
     </div>
     <div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap;">
@@ -263,7 +263,8 @@ function sc(strategy) {
 function ac(v){if(v>=85)return'linear-gradient(90deg,#10B981,#34D399)';if(v>=65)return'linear-gradient(90deg,#3B82F6,#60A5FA)';if(v>=45)return'linear-gradient(90deg,#F59E0B,#FCD34D)';return'linear-gradient(90deg,#EF4444,#F87171)'}
 
 // ── WebSocket ──────────────────────────────────────────────────
-const ws = new WebSocket(`ws://${location.host}?role=teacher`);
+const wsProto = location.protocol === 'https:' ? 'wss:' : 'ws:';
+const ws = new WebSocket(`${wsProto}//${location.host}?role=teacher`);
 ws.onmessage = e => { S = JSON.parse(e.data); render(); };
 ws.onclose   = () => showToast('⚠️ Disconnected from server — refresh to reconnect','#EF4444');
 ws.onerror   = () => showToast('⚠️ Connection error','#EF4444');
@@ -368,7 +369,7 @@ function renderLobby() {
         <div class="tgrid" id="tg">${trows}</div>
         <div style="display:flex;gap:8px;margin-top:11px;flex-wrap:wrap;align-items:center;">
           <button class="btn btn-s btn-sm" onclick="addTeam()">+ Add Team</button>
-          <span style="font-size:11px;color:var(--t3)">${teams.length} teams · max 8 · students self-assign on their devices</span>
+          <span style="font-size:11px;color:var(--t3)">${teams.length} teams · max 12 · students self-assign on their devices</span>
         </div>
       </div>
     </div>`;
@@ -522,7 +523,7 @@ function queueTeamUpdate(id, val) {
 }
 function pushTeams() { send({ type:'updateTeams', teams: S.teams }); }
 function addTeam() {
-  if ((S.teams||[]).length>=8) { alert('Max 8 teams'); return; }
+  if ((S.teams||[]).length>=12) { alert('Max 12 teams'); return; }
   const COLORS = ['#FF6B35','#3B7FE8','#1DB87A','#F5C842','#9B5CE8','#EC4899','#06B6D4','#F97316'];
   const i = (S.teams||[]).length;
   const t = { id:'t'+Date.now(), name:'Team '+(i+1), color:COLORS[i%COLORS.length], points:0, correctVotes:0, totalVotes:0 };
@@ -568,6 +569,13 @@ function saveEdit(id) {
 function closeModal() { document.getElementById('mc').innerHTML=''; }
 
 // ── BRACKET MODAL ──────────────────────────────────────────────
+// ── SETUP MODAL ────────────────────────────────────────────────
+function showSetupModal() {
+  const teams = S?.teams||[];
+  const trows = teams.map(t=>`<div class="trow" id="tr-${t.id}"><div class="tswch" style="background:${t.color}"></div><input class="tinp" value="${t.name}" maxlength="20" oninput="queueTeamUpdate('${t.id}',this.value)"><button class="tdel" onclick="removeTeam('${t.id}');showSetupModal()">✕</button></div>`).join('');
+  document.getElementById('mc').innerHTML=`<div class="mov" onclick="if(event.target===this)closeModal()"><div class="mbox" style="max-width:480px"><div class="mhd"><div class="mtitle">👥 Team Setup</div><button class="mclose" onclick="closeModal()">×</button></div><div class="mbody"><div class="tgrid" id="tg-modal">${trows}</div><div style="display:flex;gap:8px;margin-top:11px;flex-wrap:wrap;align-items:center;"><button class="btn btn-s btn-sm" onclick="addTeam();showSetupModal()">+ Add Team</button><span style="font-size:11px;color:var(--t3)">${teams.length} teams · max 12</span></div></div><div class="mfooter"><button class="btn btn-p" onclick="closeModal()">Done</button></div></div></div>`;
+}
+
 function showBracket() {
   if (!S?.bracket) { alert('Tournament not started'); return; }
   const ROUND_NAMES=['Round of 16','Elite 8','Final Four','Championship'];
