@@ -177,7 +177,8 @@ function sc(s){const m={'Premium Pricing':'s-prem','Penetration Pricing':'s-pen'
 function ac(v){if(v>=85)return'#10B981';if(v>=65)return'#3B82F6';if(v>=45)return'#F59E0B';return'#EF4444'}
 
 // ── WebSocket ──────────────────────────────────────────────────
-const ws = new WebSocket(`ws://${location.host}?role=student`);
+const wsProto = location.protocol === 'https:' ? 'wss:' : 'ws:';
+const ws = new WebSocket(`${wsProto}//${location.host}?role=student`);
 ws.onmessage = e => {
   const data = JSON.parse(e.data);
   S = data;
@@ -193,9 +194,12 @@ ws.onclose = () => {
 };
 function send(msg) { if(ws.readyState===1) ws.send(JSON.stringify(msg)); }
 
+// Show join form immediately before WS connects
+renderJoin();
+
 // ── RENDER ─────────────────────────────────────────────────────
 function render() {
-  if (!S) return;
+  if (!S) { renderJoin(); return; }
   const phLabels = {lobby:'LOBBY',matchup:'ANALYSIS',voting:'VOTE NOW!',simulating:'RUNNING',results:'RESULTS',champion:'FINAL'};
   document.getElementById('phBadge').textContent = phLabels[S.phase]||S.phase.toUpperCase();
   if (joined && myName && myTeamId) {
