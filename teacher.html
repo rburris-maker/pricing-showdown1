@@ -167,8 +167,8 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .ccc{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:200}
 .ccp{position:absolute;border-radius:2px;animation:cf linear forwards}
 @keyframes cf{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
-/* TEACHER BAR */
-#tbar{background:var(--bg2);border-top:1px solid var(--b2);padding:9px 16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-height:50px}
+/* TEACHER BAR — sticky below header */
+#tbar{background:linear-gradient(135deg,#0a1020,#0d1530);border-bottom:2px solid rgba(255,107,53,0.3);padding:8px 16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-height:48px;position:sticky;top:58px;z-index:99}
 .tblbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--t3);margin-right:2px;flex-shrink:0}
 .sep{width:1px;height:24px;background:var(--b2);margin:0 2px;flex-shrink:0}
 .f1{flex:1}
@@ -236,6 +236,10 @@ option{background:var(--bg3)}
       <button class="btn btn-s btn-sm" onclick="showStrategies()">📚 Strategies</button>
     </div>
   </header>
+  <div id="tbar">
+    <span class="tblbl">🎓 ACTIONS:</span>
+    <div id="tc" style="display:flex;gap:7px;flex-wrap:wrap;align-items:center;"></div>
+  </div>
   <div id="body">
     <aside id="sidebar">
       <div class="stitle">STUDENTS &amp; LEADERBOARD</div>
@@ -244,12 +248,7 @@ option{background:var(--bg3)}
     </aside>
     <main id="main"></main>
   </div>
-  <div id="tbar">
-    <span class="tblbl">🎓 TEACHER:</span>
-    <div id="tc" style="display:flex;gap:7px;flex-wrap:wrap;align-items:center;"></div>
-  </div>
-</div>
-<div id="mc"></div>
+  <div id="mc"></div>
 
 <script>
 let S = null; // server state

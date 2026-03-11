@@ -6,137 +6,157 @@
 <title>📱 Pricing Showdown — Student</title>
 <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#06090f;--bg2:#0b1020;--bg3:#111827;--bg4:#1a2540;--orange:#FF6B35;--gold:#F5C842;--blue:#3B7FE8;--green:#1DB87A;--red:#E8455A;--text:#F0F4FF;--t2:#A0AABE;--t3:#5A6880;--b:rgba(255,255,255,0.08);--b2:rgba(255,255,255,0.14);--go:0 0 20px rgba(255,107,53,0.35);--gg:0 0 20px rgba(245,200,66,0.35);--r:12px;--rs:8px}
+:root{--bg:#06090f;--bg2:#0b1020;--bg3:#111827;--bg4:#1a2540;--orange:#FF6B35;--gold:#F5C842;--blue:#3B7FE8;--green:#1DB87A;--red:#E8455A;--text:#F0F4FF;--t2:#A0AABE;--t3:#5A6880;--b:rgba(255,255,255,0.08);--b2:rgba(255,255,255,0.14);--go:0 0 20px rgba(255,107,53,0.35);--gg:0 0 20px rgba(245,200,66,0.35);--r:14px;--rs:10px}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Barlow Condensed',sans-serif;overflow-x:hidden}
 body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 /* HEADER */
-#hdr{background:linear-gradient(135deg,#0a1020,#0d1530);border-bottom:2px solid var(--orange);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-shrink:0}
-.ht{font-family:'Russo One',sans-serif;font-size:14px;letter-spacing:1px}.ht span{color:var(--orange)}
-.badge{font-family:'Russo One',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border-radius:20px;white-space:nowrap}
+#hdr{background:linear-gradient(135deg,#0a1020,#0d1530);border-bottom:2px solid var(--orange);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-shrink:0}
+.ht{font-family:'Russo One',sans-serif;font-size:13px;letter-spacing:1px}.ht span{color:var(--orange)}
+.badge{font-family:'Russo One',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:20px;white-space:nowrap}
 .bo{background:rgba(255,107,53,0.15);border:1px solid var(--orange);color:var(--orange)}
 .bb{background:rgba(59,127,232,0.15);border:1px solid var(--blue);color:var(--blue)}
 .bg{background:rgba(29,184,122,0.15);border:1px solid var(--green);color:var(--green)}
+/* PHASE BAR */
+#phasebar{display:flex;gap:3px;padding:8px 14px;background:var(--bg2);border-bottom:1px solid var(--b);flex-shrink:0}
+.pb-step{flex:1;height:3px;border-radius:2px;background:var(--b2);transition:background 0.4s}
+.pb-step.active{background:var(--orange)}
+.pb-step.done{background:var(--green)}
 /* MAIN */
-#main{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:14px;padding-bottom:24px}
+#main{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px;padding-bottom:28px}
 /* WAITING */
-.wait-screen{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;padding:24px 16px}
-.wait-icon{font-size:60px;animation:pulse 2s ease-in-out infinite}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
-.wait-title{font-family:'Russo One',sans-serif;font-size:22px;letter-spacing:2px}
+.wait-screen{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;padding:24px 16px;min-height:280px}
+.wait-icon{font-size:56px;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.wait-title{font-family:'Russo One',sans-serif;font-size:20px;letter-spacing:2px;line-height:1.3}
 .wait-title span{color:var(--orange);display:block}
-.wait-sub{font-size:15px;color:var(--t2);line-height:1.5;max-width:300px}
+.wait-sub{font-size:14px;color:var(--t2);line-height:1.5;max-width:280px}
 /* JOIN SCREEN */
-.join-card{background:var(--bg3);border:2px solid var(--blue);border-radius:var(--r);padding:22px 18px}
-.join-title{font-family:'Russo One',sans-serif;font-size:18px;letter-spacing:2px;text-align:center;margin-bottom:6px}
-.join-sub{font-size:13px;color:var(--t2);text-align:center;margin-bottom:18px;line-height:1.5}
-.form-group{margin-bottom:14px}
-.form-label{display:block;font-size:11px;font-weight:700;color:var(--t2);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
-.form-input{width:100%;background:var(--bg4);border:2px solid var(--b2);border-radius:var(--rs);padding:13px 14px;color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:600;transition:border-color 0.2s;outline:none}
+.join-card{background:var(--bg3);border:2px solid var(--blue);border-radius:var(--r);padding:20px 16px}
+.join-title{font-family:'Russo One',sans-serif;font-size:17px;letter-spacing:2px;text-align:center;margin-bottom:4px}
+.join-sub{font-size:13px;color:var(--t2);text-align:center;margin-bottom:16px;line-height:1.5}
+.form-group{margin-bottom:13px}
+.form-label{display:block;font-size:10px;font-weight:700;color:var(--t2);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px}
+.form-input{width:100%;background:var(--bg4);border:2px solid var(--b2);border-radius:var(--rs);padding:14px;color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:600;transition:border-color 0.2s;outline:none}
 .form-input:focus{border-color:var(--blue)}
 .form-input::placeholder{color:var(--t3)}
 /* TEAM SELECT */
-.teams-list{display:flex;flex-direction:column;gap:8px}
-.team-btn{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--bg4);border:2px solid var(--b2);border-radius:var(--rs);cursor:pointer;transition:all 0.2s;font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;color:var(--text);text-align:left}
-.team-btn:active{transform:scale(0.98)}
-.team-btn.selected{background:rgba(29,184,122,0.1);border-color:var(--green)}
-.team-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0}
-.team-pts{margin-left:auto;font-size:13px;color:var(--t3)}
+.teams-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.team-btn{display:flex;flex-direction:column;align-items:center;gap:7px;padding:14px 10px;background:var(--bg4);border:2px solid var(--b2);border-radius:var(--rs);cursor:pointer;transition:all 0.2s;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;color:var(--text);text-align:center}
+.team-btn:active{transform:scale(0.96)}
+.team-btn.selected{border-width:2px;background:rgba(255,255,255,0.04)}
+.team-dot{width:18px;height:18px;border-radius:50%;flex-shrink:0}
+.team-pts{font-size:11px;color:var(--t3);font-weight:600}
 /* STATUS CARD */
 .status-card{background:var(--bg3);border:1px solid var(--b2);border-radius:var(--r);padding:14px 16px;display:flex;align-items:center;gap:12px}
-.status-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
-.status-dot.connected{background:var(--green);box-shadow:0 0 8px var(--green)}
+.status-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
 .status-dot.waiting{background:var(--gold);animation:pulse 1.5s ease-in-out infinite}
 .status-info{flex:1}
-.status-name{font-size:15px;font-weight:700}
+.status-name{font-size:16px;font-weight:700}
 .status-sub{font-size:12px;color:var(--t2);margin-top:2px}
+/* SECTION LABEL */
+.sec-label{font-family:'Russo One',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--t3);text-align:center}
 /* MARKET CONDITION */
-.market-banner{border-radius:var(--r);padding:16px 18px;border:2px solid;animation:mR 0.5s cubic-bezier(0.175,0.885,0.32,1.275)}
-@keyframes mR{0%{opacity:0;transform:scale(0.95)}100%{opacity:1;transform:scale(1)}}
-.market-icon{font-size:40px;line-height:1;margin-bottom:8px}
-.market-eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--t3);margin-bottom:4px;font-weight:700}
-.market-name{font-family:'Russo One',sans-serif;font-size:22px;letter-spacing:2px;margin-bottom:6px}
-.market-desc{font-family:'Barlow',sans-serif;font-size:13px;color:var(--t2);line-height:1.5}
-/* MATCHUP COMPANIES */
-.matchup-label{font-family:'Russo One',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--t3);text-align:center}
-.co-compact{background:var(--bg3);border:2px solid var(--b2);border-radius:var(--r);padding:14px 16px;display:flex;align-items:center;gap:12px;transition:border-color 0.2s}
-.co-compact.winner-border{border-color:var(--gold)}
-.co-emoji-sm{font-size:34px;flex-shrink:0}
-.co-info{flex:1}
-.co-name-sm{font-family:'Russo One',sans-serif;font-size:18px;letter-spacing:0.5px}
-.co-tagline-sm{font-size:11px;color:var(--t3);font-style:italic;margin-top:1px}
-.stag{display:inline-block;margin-top:5px;padding:2px 9px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
-.shid{display:inline-block;margin-top:5px;padding:2px 9px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:rgba(255,255,255,0.04);border:1px dashed var(--t3);color:var(--t3)}
-/* ATTRS compact */
-.attrs-compact{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
-.attr-pill{display:flex;align-items:center;gap:5px;background:var(--bg4);border:1px solid var(--b);border-radius:20px;padding:3px 8px;font-size:10px;font-weight:600}
-.attr-pill-label{color:var(--t3)}
-.attr-pill-val{color:var(--text);font-weight:700}
-/* VOTE BUTTONS */
-.vote-section{display:flex;flex-direction:column;gap:10px}
-.vote-title{font-family:'Russo One',sans-serif;font-size:15px;letter-spacing:2px;text-align:center;color:var(--text)}
-.vote-btn{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-radius:var(--r);border:3px solid;cursor:pointer;transition:all 0.2s;font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:var(--text);background:transparent;width:100%;text-align:left;gap:12px;-webkit-tap-highlight-color:transparent}
+.market-banner{border-radius:var(--r);padding:14px 16px;border:2px solid;animation:mR 0.4s cubic-bezier(0.175,0.885,0.32,1.275)}
+@keyframes mR{0%{opacity:0;transform:scale(0.96)}100%{opacity:1;transform:scale(1)}}
+.market-row{display:flex;align-items:center;gap:12px}
+.market-icon-big{font-size:36px;flex-shrink:0}
+.market-eyebrow{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--t3);margin-bottom:2px;font-weight:700}
+.market-name{font-family:'Russo One',sans-serif;font-size:18px;letter-spacing:1px;margin-bottom:3px}
+.market-desc{font-family:'Barlow',sans-serif;font-size:12px;color:var(--t2);line-height:1.4}
+/* COMPANY CARDS */
+.co-card{background:var(--bg3);border:2px solid var(--b2);border-radius:var(--r);overflow:hidden;transition:border-color 0.2s}
+.co-card.winner-glow{border-color:var(--gold);box-shadow:var(--gg)}
+.co-card-top{padding:14px 14px 10px;display:flex;align-items:center;gap:12px}
+.co-emoji{font-size:36px;flex-shrink:0}
+.co-name{font-family:'Russo One',sans-serif;font-size:19px;letter-spacing:0.5px}
+.co-tagline{font-size:11px;color:var(--t3);font-style:italic;margin-top:1px}
+.stag{display:inline-block;margin-top:5px;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.shid{display:inline-block;margin-top:5px;padding:3px 10px;border-radius:20px;font-size:10px;letter-spacing:1px;text-transform:uppercase;background:rgba(255,255,255,0.03);border:1px dashed rgba(255,255,255,0.12);color:var(--t3)}
+/* ATTRS */
+.co-attrs{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:0 14px 14px}
+.attr-row{display:flex;align-items:center;gap:6px;background:var(--bg4);border-radius:6px;padding:5px 8px}
+.attr-label{font-size:10px;color:var(--t3);flex:1}
+.attr-bar-wrap{width:40px;height:4px;background:rgba(255,255,255,0.07);border-radius:2px;overflow:hidden}
+.attr-bar-fill{height:100%;border-radius:2px}
+.attr-val{font-size:11px;font-weight:700;width:22px;text-align:right}
+/* VOTE */
+.vote-area{display:flex;flex-direction:column;gap:10px}
+.vote-heading{font-family:'Russo One',sans-serif;font-size:16px;letter-spacing:2px;text-align:center;color:var(--text)}
+.vote-heading span{color:var(--gold)}
+.vote-btn{display:flex;align-items:center;padding:20px 18px;border-radius:var(--r);border:3px solid;cursor:pointer;transition:all 0.18s;font-family:'Barlow Condensed',sans-serif;color:var(--text);background:var(--bg3);width:100%;gap:14px;-webkit-tap-highlight-color:transparent;position:relative;overflow:hidden}
+.vote-btn::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity 0.18s}
 .vote-btn:active{transform:scale(0.97)}
-.vote-btn-a{border-color:var(--blue)}
-.vote-btn-a.selected{background:rgba(59,127,232,0.25);border-color:var(--blue);box-shadow:0 0 20px rgba(59,127,232,0.3)}
-.vote-btn-b{border-color:var(--orange)}
-.vote-btn-b.selected{background:rgba(255,107,53,0.25);border-color:var(--orange);box-shadow:0 0 20px rgba(255,107,53,0.3)}
-.vote-btn-emoji{font-size:30px;flex-shrink:0}
-.vote-btn-name{flex:1}
-.vote-btn-check{font-size:22px;flex-shrink:0}
-.vs-mid{text-align:center;font-family:'Russo One',sans-serif;font-size:28px;color:var(--t3);letter-spacing:4px}
-.voted-confirm{background:linear-gradient(135deg,rgba(29,184,122,0.15),rgba(29,184,122,0.05));border:2px solid var(--green);border-radius:var(--r);padding:14px 16px;text-align:center}
-.voted-confirm-icon{font-size:32px;margin-bottom:5px}
-.voted-confirm-text{font-family:'Russo One',sans-serif;font-size:14px;letter-spacing:1px;color:var(--green)}
-.voted-confirm-sub{font-size:12px;color:var(--t2);margin-top:4px;font-family:'Barlow',sans-serif}
+.vote-btn-a{border-color:rgba(59,127,232,0.5)}
+.vote-btn-a::before{background:linear-gradient(135deg,rgba(59,127,232,0.2),transparent)}
+.vote-btn-a:hover::before,.vote-btn-a.selected::before{opacity:1}
+.vote-btn-a.selected{border-color:var(--blue);box-shadow:0 0 24px rgba(59,127,232,0.35)}
+.vote-btn-b{border-color:rgba(255,107,53,0.5)}
+.vote-btn-b::before{background:linear-gradient(135deg,rgba(255,107,53,0.2),transparent)}
+.vote-btn-b:hover::before,.vote-btn-b.selected::before{opacity:1}
+.vote-btn-b.selected{border-color:var(--orange);box-shadow:0 0 24px rgba(255,107,53,0.35)}
+.vb-emoji{font-size:38px;flex-shrink:0;position:relative;z-index:1}
+.vb-info{flex:1;position:relative;z-index:1}
+.vb-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--t3);margin-bottom:2px}
+.vb-name{font-size:22px;font-weight:700;letter-spacing:0.5px}
+.vb-arrow{font-size:20px;color:var(--t3);position:relative;z-index:1;transition:color 0.18s}
+.vote-btn-a.selected .vb-arrow{color:var(--blue)}
+.vote-btn-b.selected .vb-arrow{color:var(--orange)}
+.vs-divider{display:flex;align-items:center;gap:10px}
+.vs-divider::before,.vs-divider::after{content:'';flex:1;height:1px;background:var(--b)}
+.vs-text{font-family:'Russo One',sans-serif;font-size:16px;color:var(--t3);letter-spacing:4px}
+.vote-count{text-align:center;font-size:12px;color:var(--t3);padding:4px 0}
+/* VOTED CONFIRM */
+.voted-confirm{background:linear-gradient(135deg,rgba(29,184,122,0.12),rgba(29,184,122,0.03));border:2px solid var(--green);border-radius:var(--r);padding:16px;text-align:center}
+.voted-icon{font-size:36px;margin-bottom:6px}
+.voted-text{font-family:'Russo One',sans-serif;font-size:15px;letter-spacing:1px;color:var(--green)}
+.voted-sub{font-size:12px;color:var(--t2);margin-top:4px;font-family:'Barlow',sans-serif}
+.btn-change{background:none;border:1px solid var(--b2);color:var(--t3);font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;padding:7px 16px;border-radius:20px;cursor:pointer;margin-top:8px;transition:all 0.2s}
+.btn-change:active{background:var(--bg3)}
 /* RESULTS */
-.result-win{background:linear-gradient(135deg,rgba(245,200,66,0.12),rgba(245,200,66,0.03));border:2px solid var(--gold);border-radius:var(--r);padding:18px;text-align:center;box-shadow:var(--gg)}
-.result-win-label{font-family:'Russo One',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
-.result-win-name{font-family:'Russo One',sans-serif;font-size:clamp(22px,6vw,38px);letter-spacing:2px;display:flex;align-items:center;justify-content:center;gap:10px}
-.result-win-sub{font-size:13px;color:var(--t2);margin-top:4px}
-.my-result-card{border-radius:var(--r);padding:14px 16px;text-align:center;border:2px solid}
-.my-result-card.correct{background:rgba(29,184,122,0.1);border-color:var(--green)}
-.my-result-card.wrong{background:rgba(232,69,90,0.08);border-color:var(--red);opacity:0.85}
-.my-result-card.novote{background:rgba(255,255,255,0.03);border-color:var(--b);opacity:0.7}
-.my-result-icon{font-size:32px;margin-bottom:5px}
-.my-result-text{font-family:'Russo One',sans-serif;font-size:15px;letter-spacing:1px}
-.my-result-sub{font-size:12px;color:var(--t2);margin-top:3px;font-family:'Barlow',sans-serif}
-/* SCORE BREAKDOWN */
-.score-section{background:var(--bg3);border:1px solid var(--b2);border-radius:var(--r);padding:14px 16px}
-.score-title{font-family:'Russo One',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--t2);margin-bottom:12px}
-.score-compare{display:flex;gap:10px;align-items:center}
-.score-col{flex:1;text-align:center}
-.score-co-name{font-size:13px;font-weight:700;margin-bottom:4px}
-.score-total-big{font-family:'Russo One',sans-serif;font-size:28px;color:var(--gold)}
-.score-total-big.winner-score{color:var(--gold)}
-.score-total-big.loser-score{color:var(--t3);font-size:22px}
-.score-vs{font-family:'Russo One',sans-serif;font-size:16px;color:var(--t3)}
-.score-lines{display:flex;flex-direction:column;gap:4px;margin-top:12px}
-.score-ln{display:flex;justify-content:space-between;font-size:11px;padding:3px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
-.score-ln:last-child{border-bottom:none}
-.score-ln-l{color:var(--t2)}.score-ln-v{font-weight:700}.pos{color:var(--green)}.neg{color:var(--red)}
-/* EXPLANATION */
-.expl-card{background:linear-gradient(135deg,#0d1530,#0a1020);border:1px solid var(--b2);border-radius:var(--r);padding:14px 16px}
-.expl-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:7px;font-weight:700}
-.expl-text{font-family:'Barlow',sans-serif;font-size:13px;line-height:1.6;color:var(--t2)}
-.expl-text strong{color:var(--text)}
+.result-winner{background:linear-gradient(135deg,rgba(245,200,66,0.1),rgba(245,200,66,0.02));border:2px solid var(--gold);border-radius:var(--r);padding:18px;text-align:center;box-shadow:var(--gg)}
+.rw-label{font-family:'Russo One',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.rw-name{font-family:'Russo One',sans-serif;font-size:clamp(20px,6vw,36px);letter-spacing:2px;display:flex;align-items:center;justify-content:center;gap:10px}
+.rw-sub{font-size:13px;color:var(--t2);margin-top:4px}
+.my-result{border-radius:var(--r);padding:14px 16px;text-align:center;border:2px solid}
+.my-result.correct{background:rgba(29,184,122,0.08);border-color:var(--green)}
+.my-result.wrong{background:rgba(232,69,90,0.06);border-color:var(--red)}
+.my-result.novote{background:rgba(255,255,255,0.02);border-color:var(--b);opacity:0.6}
+.mr-icon{font-size:30px;margin-bottom:4px}
+.mr-text{font-family:'Russo One',sans-serif;font-size:14px;letter-spacing:1px}
+.mr-sub{font-size:12px;color:var(--t2);margin-top:3px;font-family:'Barlow',sans-serif}
+/* SCORE */
+.score-card{background:var(--bg3);border:1px solid var(--b2);border-radius:var(--r);padding:14px}
+.sc-title{font-family:'Russo One',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--t2);margin-bottom:10px}
+.sc-row{display:flex;align-items:center;gap:10px}
+.sc-col{flex:1;text-align:center}
+.sc-name{font-size:12px;font-weight:700;margin-bottom:3px;color:var(--t2)}
+.sc-num{font-family:'Russo One',sans-serif;font-size:30px;color:var(--gold)}
+.sc-num.dim{color:var(--t3);font-size:22px}
+.sc-vs{font-family:'Russo One',sans-serif;font-size:14px;color:var(--t3)}
+/* ANALYSIS */
+.analysis-card{background:linear-gradient(135deg,#0d1530,#0a1020);border:1px solid var(--b2);border-radius:var(--r);padding:13px 14px}
+.an-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:6px;font-weight:700}
+.an-text{font-family:'Barlow',sans-serif;font-size:13px;line-height:1.6;color:var(--t2)}
+.an-text strong{color:var(--text)}
 /* LEADERBOARD */
-.lb-card{background:var(--bg3);border:1px solid var(--b2);border-radius:var(--r);padding:14px 16px}
-.lb-title{font-family:'Russo One',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-.lb-row{display:flex;align-items:center;gap:9px;padding:8px 10px;background:var(--bg4);border:1px solid var(--b);border-radius:var(--rs);margin-bottom:5px}
-.lb-row.g1{border-color:rgba(245,200,66,0.5);background:rgba(245,200,66,0.06)}.lb-row.g2{border-color:rgba(192,192,192,0.3)}.lb-row.g3{border-color:rgba(205,127,50,0.3)}
-.lb-rank{font-family:'Russo One',sans-serif;font-size:16px;width:24px;text-align:center}
-.lb-dot{width:11px;height:11px;border-radius:50%}
+.lb-card{background:var(--bg3);border:1px solid var(--b2);border-radius:var(--r);padding:14px}
+.lb-title{font-family:'Russo One',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.lb-row{display:flex;align-items:center;gap:9px;padding:9px 10px;background:var(--bg4);border:1px solid var(--b);border-radius:var(--rs);margin-bottom:5px}
+.lb-row.g1{border-color:rgba(245,200,66,0.5);background:rgba(245,200,66,0.05)}
+.lb-row.g2{border-color:rgba(192,192,192,0.25)}
+.lb-row.g3{border-color:rgba(205,127,50,0.25)}
+.lb-rank{font-family:'Russo One',sans-serif;font-size:15px;width:22px;text-align:center}
+.lb-dot{width:10px;height:10px;border-radius:50%}
 .lb-name{flex:1;font-size:14px;font-weight:700}
-.lb-pts{font-family:'Russo One',sans-serif;font-size:18px;color:var(--gold)}
+.lb-pts{font-family:'Russo One',sans-serif;font-size:17px;color:var(--gold)}
 /* CHAMPION */
-.champ{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:24px 16px;animation:fi .6s ease}
+.champ{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;padding:24px 16px;animation:fi .6s ease}
 @keyframes fi{from{opacity:0}to{opacity:1}}
-.ch-crown{font-size:64px;animation:fl 3s ease-in-out infinite}
+.ch-crown{font-size:60px;animation:fl 3s ease-in-out infinite}
 @keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.ch-label{font-family:'Russo One',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gold)}
-.ch-name{font-family:'Russo One',sans-serif;font-size:clamp(24px,7vw,48px);letter-spacing:2px;display:flex;align-items:center;justify-content:center;gap:12px}
-.ch-sub{font-size:14px;color:var(--t2);max-width:320px;line-height:1.5;font-family:'Barlow',sans-serif}
+.ch-label{font-family:'Russo One',sans-serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--gold)}
+.ch-name{font-family:'Russo One',sans-serif;font-size:clamp(22px,7vw,44px);letter-spacing:2px;display:flex;align-items:center;justify-content:center;gap:10px}
 /* STRATEGY COLORS */
 .s-prem{background:rgba(168,85,247,0.2);color:#c084fc;border:1px solid rgba(168,85,247,0.4)}
 .s-pen{background:rgba(59,127,232,0.2);color:#93c5fd;border:1px solid rgba(59,127,232,0.4)}
@@ -147,11 +167,11 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .s-psy{background:rgba(236,72,153,0.2);color:#f9a8d4;border:1px solid rgba(236,72,153,0.4)}
 .s-bun{background:rgba(52,211,153,0.2);color:#a7f3d0;border:1px solid rgba(52,211,153,0.4)}
 /* BUTTONS */
-.btn{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:var(--rs);padding:13px 22px;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;justify-content:center;gap:7px;width:100%;white-space:nowrap}
+.btn{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:var(--rs);padding:14px 22px;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;justify-content:center;gap:7px;width:100%;white-space:nowrap}
 .btn:disabled{opacity:0.3;cursor:not-allowed}
 .btn:active{transform:scale(0.97)}
 .btn-p{background:var(--blue);color:white;box-shadow:0 2px 14px rgba(59,127,232,0.4)}
-.btn-g{background:var(--green);color:#001a0e;font-size:16px;padding:15px}
+.btn-g{background:var(--green);color:#001a0e;font-size:17px;padding:16px;box-shadow:0 2px 16px rgba(29,184,122,0.35)}
 .btn-s{background:var(--bg4);border:1px solid var(--b2);color:var(--text)}
 .confetti-cnt{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:200}
 .confetti-p{position:absolute;border-radius:2px;animation:cf linear forwards}
@@ -166,6 +186,13 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
     <div class="badge bb" id="myBadge">NOT JOINED</div>
   </div>
 </header>
+<div id="phasebar">
+  <div class="pb-step" id="pb1"></div>
+  <div class="pb-step" id="pb2"></div>
+  <div class="pb-step" id="pb3"></div>
+  <div class="pb-step" id="pb4"></div>
+  <div class="pb-step" id="pb5"></div>
+</div>
 <main id="main"></main>
 
 <script>
@@ -176,273 +203,254 @@ let joined = false;
 function sc(s){const m={'Premium Pricing':'s-prem','Penetration Pricing':'s-pen','Competitive Pricing':'s-com','Discount Pricing':'s-dis','Dynamic Pricing':'s-dyn','Value Pricing':'s-val','Psychological Pricing':'s-psy','Bundle Pricing':'s-bun'};return m[s]||''}
 function ac(v){if(v>=85)return'#10B981';if(v>=65)return'#3B82F6';if(v>=45)return'#F59E0B';return'#EF4444'}
 
-// ── WebSocket ──────────────────────────────────────────────────
-const wsProto = location.protocol === 'https:' ? 'wss:' : 'ws:';
+const wsProto = location.protocol==='https:'?'wss:':'ws:';
 const ws = new WebSocket(`${wsProto}//${location.host}?role=student`);
 ws.onmessage = e => {
-  const data = JSON.parse(e.data);
-  S = data;
-  // Update local state from server
-  if (S.myName) myName = S.myName;
-  if (S.myTeamId) myTeamId = S.myTeamId;
-  if (S.myVote) myVote = S.myVote;
-  if (myName && myTeamId) joined = true;
+  S = JSON.parse(e.data);
+  if(S.myName) myName=S.myName;
+  if(S.myTeamId) myTeamId=S.myTeamId;
+  if(S.myVote) myVote=S.myVote;
+  if(myName&&myTeamId) joined=true;
   render();
 };
 ws.onclose = () => {
-  document.getElementById('main').innerHTML = `<div class="wait-screen"><div class="wait-icon">⚠️</div><div class="wait-title">Disconnected</div><p class="wait-sub">Lost connection to the game server. Please refresh the page.</p><button class="btn btn-s" onclick="location.reload()" style="margin-top:10px;max-width:220px">🔄 Reconnect</button></div>`;
+  document.getElementById('main').innerHTML=`<div class="wait-screen"><div class="wait-icon">⚠️</div><div class="wait-title">Disconnected</div><p class="wait-sub">Please refresh to reconnect.</p><button class="btn btn-s" onclick="location.reload()" style="max-width:220px;margin-top:8px">🔄 Reconnect</button></div>`;
 };
-function send(msg) { if(ws.readyState===1) ws.send(JSON.stringify(msg)); }
+function send(msg){if(ws.readyState===1)ws.send(JSON.stringify(msg));}
 
-// Show join form immediately before WS connects
 renderJoin();
 
-// ── RENDER ─────────────────────────────────────────────────────
-function render() {
-  if (!S) { renderJoin(); return; }
-  const phLabels = {lobby:'LOBBY',matchup:'ANALYSIS',voting:'VOTE NOW!',simulating:'RUNNING',results:'RESULTS',champion:'FINAL'};
-  document.getElementById('phBadge').textContent = phLabels[S.phase]||S.phase.toUpperCase();
-  if (joined && myName && myTeamId) {
-    const team = (S.teams||[]).find(t=>t.id===myTeamId);
-    document.getElementById('myBadge').textContent = team?.name||myName;
-    document.getElementById('myBadge').style.background = team ? team.color+'22' : '';
-    document.getElementById('myBadge').style.borderColor = team?.color||'';
-    document.getElementById('myBadge').style.color = team?.color||'';
+function updatePhaseBar(phase){
+  const order=['lobby','matchup','voting','simulating','results'];
+  const idx=order.indexOf(phase);
+  for(let i=1;i<=5;i++){const el=document.getElementById('pb'+i);if(!el)continue;el.className='pb-step'+(i-1<idx?' done':i-1===idx?' active':'');}
+}
+
+function render(){
+  if(!S){renderJoin();return;}
+  const phLabels={lobby:'LOBBY',matchup:'ANALYSIS',voting:'VOTE!',simulating:'RUNNING',results:'RESULTS',champion:'CHAMPION'};
+  document.getElementById('phBadge').textContent=phLabels[S.phase]||S.phase.toUpperCase();
+  updatePhaseBar(S.phase);
+  if(joined&&myName&&myTeamId){
+    const team=(S.teams||[]).find(t=>t.id===myTeamId);
+    const b=document.getElementById('myBadge');
+    b.textContent=myName;
+    if(team){b.style.background=team.color+'22';b.style.borderColor=team.color;b.style.color=team.color;}
   }
-  if (!joined || S.phase==='lobby') { renderJoin(); return; }
-  switch(S.phase) {
-    case 'lobby':      renderJoin();    break;
-    case 'matchup':    renderMatchup(); break;
-    case 'voting':     renderVoting();  break;
+  if(!joined||S.phase==='lobby'){renderJoin();return;}
+  switch(S.phase){
+    case 'matchup': renderMatchup(); break;
+    case 'voting': renderVoting(); break;
     case 'simulating': renderSimulating(); break;
-    case 'results':    renderResults(); break;
-    case 'champion':   renderChampion(); break;
+    case 'results': renderResults(); break;
+    case 'champion': renderChampion(); break;
   }
 }
 
-// ── JOIN ───────────────────────────────────────────────────────
-function renderJoin() {
-  const teams = S?.teams || [];
-  if (!joined) {
-    const teamBtns = teams.map(t=>`<button class="team-btn ${myTeamId===t.id?'selected':''}" onclick="selectTeam('${t.id}')">
+function renderJoin(){
+  const teams=S?.teams||[];
+  if(!joined){
+    const cols=teams.length<=4?'1fr 1fr':teams.length<=6?'1fr 1fr 1fr':'1fr 1fr';
+    const teamBtns=teams.map(t=>`<button class="team-btn ${myTeamId===t.id?'selected':''}" style="${myTeamId===t.id?`border-color:${t.color};background:${t.color}18`:''}" onclick="selectTeam('${t.id}')">
       <div class="team-dot" style="background:${t.color}"></div>
       <span>${t.name}</span>
       <span class="team-pts">${t.points} pts</span>
     </button>`).join('');
     document.getElementById('main').innerHTML=`
-      <div class="wait-screen" style="padding-top:16px;justify-content:flex-start;gap:16px">
-        <div style="font-size:48px">🏆</div>
-        <div class="wait-title" style="font-size:20px">MARCH MADNESS<span>PRICING SHOWDOWN</span></div>
+      <div style="text-align:center;padding:20px 0 8px">
+        <div style="font-size:44px;margin-bottom:8px">🏆</div>
+        <div style="font-family:'Russo One',sans-serif;font-size:18px;letter-spacing:2px">MARCH MADNESS</div>
+        <div style="font-size:13px;color:var(--orange);letter-spacing:3px;font-weight:700;margin-top:2px">PRICING SHOWDOWN</div>
       </div>
       <div class="join-card">
         <div class="join-title">JOIN THE GAME</div>
-        <div class="join-sub">Enter your name, then pick your team to start earning points!</div>
+        <div class="join-sub">Enter your name and pick your team</div>
         <div class="form-group">
           <label class="form-label">Your Name</label>
-          <input class="form-input" id="nameInp" type="text" placeholder="Enter your name..." maxlength="25" autocomplete="off">
+          <input class="form-input" id="nameInp" type="text" placeholder="Enter your name..." maxlength="25" autocomplete="off" autocapitalize="words">
         </div>
         <div class="form-group">
           <label class="form-label">Choose Your Team</label>
-          <div class="teams-list">${teamBtns}</div>
+          <div class="teams-grid" style="grid-template-columns:${cols}">${teamBtns||'<div style="color:var(--t3);font-size:13px;padding:8px">Waiting for teacher to set up teams...</div>'}</div>
         </div>
-        <button class="btn btn-g" onclick="joinGame()" style="margin-top:8px">✅ JOIN GAME</button>
+        <button class="btn btn-g" onclick="joinGame()" style="margin-top:6px">✅ JOIN GAME</button>
       </div>`;
+    setTimeout(()=>document.getElementById('nameInp')?.focus(),100);
   } else {
-    // Already joined but game is in lobby
+    const team=(S?.teams||[]).find(t=>t.id===myTeamId);
     document.getElementById('main').innerHTML=`
       <div class="wait-screen">
-        <div class="wait-icon">⏳</div>
-        <div class="wait-title">You're In!<span>${myName||'Student'}</span></div>
-        <div class="status-card"><div class="status-dot waiting"></div><div class="status-info"><div class="status-name">${(S?.teams||[]).find(t=>t.id===myTeamId)?.name||'Your Team'}</div><div class="status-sub">Waiting for teacher to start the tournament...</div></div></div>
-        <p class="wait-sub">${(S?.totalStudents||0)} student${S?.totalStudents===1?'':'s'} connected</p>
-        <button class="btn btn-s" style="max-width:220px" onclick="joined=false;render()">← Change Team</button>
+        <div class="wait-icon">✅</div>
+        <div class="wait-title" style="font-size:18px">YOU'RE IN!<span style="font-size:22px">${myName||''}</span></div>
+        <div class="status-card" style="${team?`border-color:${team.color}40`:''}">
+          <div class="status-dot waiting" style="${team?`background:${team.color}`:''}"></div>
+          <div class="status-info">
+            <div class="status-name" style="${team?`color:${team.color}`:''}">Team: ${team?.name||'—'}</div>
+            <div class="status-sub">Waiting for teacher to start...</div>
+          </div>
+        </div>
+        <div style="font-size:13px;color:var(--t3)">${(S?.totalStudents||0)} student${S?.totalStudents===1?'':'s'} connected</div>
+        <button class="btn btn-s" style="max-width:200px;padding:10px" onclick="joined=false;myTeamId=null;render()">← Change Team</button>
       </div>`;
   }
 }
-function selectTeam(id) { myTeamId=id; render(); }
-function joinGame() {
-  const inp = document.getElementById('nameInp');
-  const name = inp?.value.trim();
-  if (!name) { inp?.focus(); inp?.style && (inp.style.borderColor='var(--red)'); return; }
-  if (!myTeamId && S?.teams?.length) myTeamId = S.teams[0].id;
-  myName = name; joined = true;
-  send({ type:'join', name:myName, teamId:myTeamId });
+function selectTeam(id){myTeamId=id;render();}
+function joinGame(){
+  const inp=document.getElementById('nameInp');
+  const name=inp?.value.trim();
+  if(!name){if(inp){inp.style.borderColor='var(--red)';inp.focus();}return;}
+  if(!myTeamId&&S?.teams?.length) myTeamId=S.teams[0].id;
+  myName=name; joined=true;
+  send({type:'join',name:myName,teamId:myTeamId});
 }
 
-// ── MATCHUP ANALYSIS ───────────────────────────────────────────
-function renderMatchup() {
-  if (!S?.matchup) { renderWait('⏳','Stand By','Teacher is setting up the next matchup...'); return; }
-  const {a,b} = S.matchup;
-  const attrs = [{k:'brandPower',l:'Brand'},{k:'costEfficiency',l:'Cost Eff'},{k:'customerLoyalty',l:'Loyalty'},{k:'demandElasticity',l:'Elasticity'},{k:'pricingFlexibility',l:'Flexibility'},{k:'channelStrength',l:'Channel'}];
-  const coCard = (co) => `<div class="co-compact">
-    <div class="co-emoji-sm">${co.emoji}</div>
-    <div class="co-info">
-      <div class="co-name-sm">${co.name}</div>
-      <div class="co-tagline-sm">"${co.tagline}"</div>
-      <div class="shid">⬛ Strategy Hidden</div>
-      <div class="attrs-compact">${attrs.map(av=>`<div class="attr-pill"><span class="attr-pill-label">${av.l}</span><span class="attr-pill-val" style="color:${ac(co.attributes[av.k])}">${co.attributes[av.k]}</span></div>`).join('')}</div>
+function coCard(co,extra=''){
+  const attrs=[{k:'brandPower',l:'Brand'},{k:'costEfficiency',l:'Cost'},{k:'customerLoyalty',l:'Loyalty'},{k:'demandElasticity',l:'Elastic'},{k:'pricingFlexibility',l:'Flex'},{k:'channelStrength',l:'Channel'}];
+  return `<div class="co-card ${extra}">
+    <div class="co-card-top">
+      <div class="co-emoji">${co.emoji}</div>
+      <div><div class="co-name">${co.name}</div><div class="co-tagline">"${co.tagline}"</div><div class="shid" style="margin-top:6px">🔒 Strategy hidden</div></div>
     </div>
+    <div class="co-attrs">${attrs.map(a=>`<div class="attr-row"><span class="attr-label">${a.l}</span><div class="attr-bar-wrap"><div class="attr-bar-fill" style="width:${co.attributes[a.k]}%;background:${ac(co.attributes[a.k])}"></div></div><span class="attr-val" style="color:${ac(co.attributes[a.k])}">${co.attributes[a.k]}</span></div>`).join('')}</div>
   </div>`;
+}
+
+function renderMatchup(){
+  if(!S?.matchup){renderWait('⏳','Stand By','Teacher is setting up the next matchup...');return;}
+  const {a,b}=S.matchup;
   document.getElementById('main').innerHTML=`
-    <div class="matchup-label">${S.roundName||''} · MATCHUP ${S.matchupNum} OF ${S.matchupTotal}</div>
-    <div style="background:rgba(245,200,66,0.06);border:1px dashed rgba(245,200,66,0.3);border-radius:var(--r);padding:11px 14px;text-align:center;font-size:13px;color:var(--gold)">
-      🔒 Strategies hidden — market condition reveals when voting opens
+    <div class="sec-label">${S.roundName||''} · MATCHUP ${S.matchupNum} OF ${S.matchupTotal}</div>
+    <div style="background:rgba(245,200,66,0.05);border:1px dashed rgba(245,200,66,0.25);border-radius:var(--r);padding:10px 14px;text-align:center;font-size:12px;color:var(--gold)">
+      🔒 Strategies hidden — revealed after simulation
     </div>
     ${coCard(a)}
-    <div class="vs-mid">VS</div>
+    <div class="vs-divider"><div class="vs-text">VS</div></div>
     ${coCard(b)}
-    <div style="background:var(--bg3);border:1px solid var(--b);border-radius:var(--r);padding:12px 14px;text-align:center;font-size:12px;color:var(--t3);font-family:'Barlow',sans-serif">
-      Study both companies' attributes. The market condition will be revealed when your teacher opens voting.
+    <div style="padding:8px;text-align:center;font-size:12px;color:var(--t3);font-family:'Barlow',sans-serif">
+      Study the attributes. Market condition reveals when voting opens.
     </div>
-    ${renderLBMini()}`;
+    ${lbMini()}`;
 }
 
-// ── VOTING ─────────────────────────────────────────────────────
-function renderVoting() {
-  if (!S?.matchup) return;
-  const {a,b} = S.matchup;
-  const cond = S.activeCondition;
-  const myVoteNow = myVote || S.myVote;
-  const attrs = [{k:'brandPower',l:'Brand'},{k:'costEfficiency',l:'Cost Eff'},{k:'customerLoyalty',l:'Loyalty'},{k:'demandElasticity',l:'Elasticity'},{k:'pricingFlexibility',l:'Flexibility'},{k:'channelStrength',l:'Channel'}];
-  const coCompact = (co, side) => `<div class="co-compact ${myVoteNow===side?'winner-border':''}">
-    <div class="co-emoji-sm">${co.emoji}</div>
-    <div class="co-info">
-      <div class="co-name-sm">${co.name}</div>
-      <div class="shid">⬛ Strategy Hidden</div>
-      <div class="attrs-compact">${attrs.map(av=>`<div class="attr-pill"><span class="attr-pill-label">${av.l}</span><span class="attr-pill-val" style="color:${ac(co.attributes[av.k])}">${co.attributes[av.k]}</span></div>`).join('')}</div>
-    </div>
-  </div>`;
-  const condBanner = cond ? `<div class="market-banner" style="border-color:${cond.color};background:linear-gradient(135deg,${cond.color}12,${cond.color}04)">
-    <div class="market-eyebrow">⚠️ Active Market Condition</div>
-    <div class="market-name" style="color:${cond.color}">${cond.icon} ${cond.name}</div>
-    <div class="market-desc">${cond.description}</div>
-  </div>` : '';
-  const voteSection = myVoteNow
-    ? `<div class="voted-confirm"><div class="voted-confirm-icon">✅</div><div class="voted-confirm-text">VOTE LOCKED IN!</div><div class="voted-confirm-sub">You voted for <strong>${myVoteNow==='a'?a.name:b.name}</strong>. Waiting for others...</div></div>
-       <button class="btn btn-s" onclick="myVote=null;renderVoting()">↩ Change Vote</button>`
-    : `<div class="vote-section">
-        <div class="vote-title">🗳️ WHO WILL WIN?</div>
+function renderVoting(){
+  if(!S?.matchup) return;
+  const {a,b}=S.matchup;
+  const cond=S.activeCondition;
+  const myVoteNow=myVote||S.myVote;
+  const condBanner=cond?`<div class="market-banner" style="border-color:${cond.color};background:linear-gradient(135deg,${cond.color}14,${cond.color}04)">
+    <div class="market-row"><div class="market-icon-big">${cond.icon}</div><div>
+      <div class="market-eyebrow">Market Condition</div>
+      <div class="market-name" style="color:${cond.color}">${cond.name}</div>
+      <div class="market-desc">${cond.description}</div>
+    </div></div></div>`:'';
+  const voteArea=myVoteNow
+    ?`<div class="voted-confirm">
+        <div class="voted-icon">✅</div>
+        <div class="voted-text">VOTE LOCKED IN!</div>
+        <div class="voted-sub">You picked <strong>${myVoteNow==='a'?a.name:b.name}</strong></div>
+        <button class="btn-change" onclick="myVote=null;renderVoting()">↩ Change vote</button>
+      </div>`
+    :`<div class="vote-area">
+        <div class="vote-heading">🗳️ WHO WILL WIN? <span>PICK ONE</span></div>
         <button class="vote-btn vote-btn-a" onclick="castVote('a')">
-          <span class="vote-btn-emoji">${a.emoji}</span>
-          <span class="vote-btn-name">${a.name}</span>
-          <span class="vote-btn-check">→</span>
+          <div class="vb-emoji">${a.emoji}</div>
+          <div class="vb-info"><div class="vb-label">OPTION A</div><div class="vb-name">${a.name}</div></div>
+          <div class="vb-arrow">→</div>
         </button>
-        <div class="vs-mid">VS</div>
+        <div class="vs-divider"><div class="vs-text">VS</div></div>
         <button class="vote-btn vote-btn-b" onclick="castVote('b')">
-          <span class="vote-btn-emoji">${b.emoji}</span>
-          <span class="vote-btn-name">${b.name}</span>
-          <span class="vote-btn-check">→</span>
+          <div class="vb-emoji">${b.emoji}</div>
+          <div class="vb-info"><div class="vb-label">OPTION B</div><div class="vb-name">${b.name}</div></div>
+          <div class="vb-arrow">→</div>
         </button>
+        <div class="vote-count">${S.votedCount||0} of ${S.totalStudents||0} students voted</div>
       </div>`;
-  document.getElementById('main').innerHTML=`
-    ${condBanner}
-    ${coCompact(a,'a')}
-    <div class="vs-mid">VS</div>
-    ${coCompact(b,'b')}
-    ${voteSection}
-    <div style="text-align:center;font-size:11px;color:var(--t3)">${S.votedCount||0}/${S.totalStudents||0} students voted</div>`;
+  document.getElementById('main').innerHTML=`${condBanner}${voteArea}`;
 }
-function castVote(side) {
-  myVote = side;
-  send({ type:'vote', side });
-  renderVoting();
-}
+function castVote(side){myVote=side;send({type:'vote',side});renderVoting();}
 
-// ── SIMULATING ─────────────────────────────────────────────────
-function renderSimulating() {
-  const cond = S?.activeCondition;
-  document.getElementById('main').innerHTML=`
-    <div class="wait-screen">
-      ${cond?`<div style="font-size:64px;animation:pulse 1s ease-in-out infinite">${cond.icon}</div><div class="wait-title" style="color:${cond.color}">${cond.name}</div>`:'<div class="wait-icon">⚡</div>'}
-      <div class="wait-sub">Simulation running... results coming up!</div>
-    </div>`;
+function renderSimulating(){
+  const cond=S?.activeCondition;
+  document.getElementById('main').innerHTML=`<div class="wait-screen">
+    <div style="font-size:64px;animation:pulse 1s ease-in-out infinite">${cond?.icon||'⚡'}</div>
+    <div class="wait-title" style="${cond?`color:${cond.color}`:''}">SIMULATING...</div>
+    <div class="wait-sub">Running the numbers — results coming up!</div>
+  </div>`;
 }
 
-// ── RESULTS ────────────────────────────────────────────────────
-function renderResults() {
-  const r = S?.lastResult;
-  if (!r) return;
-  const cond = r.condition;
-  const myVoteNow = myVote || S.myVote;
-  const myCorrect = myVoteNow ? (myVoteNow==='a'? r.sA.id===r.winner.id : r.sB.id===r.winner.id) : null;
-  const myResultCard = myVoteNow
-    ? (myCorrect
-        ? `<div class="my-result-card correct"><div class="my-result-icon">🎉</div><div class="my-result-text">CORRECT! +1 POINT</div><div class="my-result-sub">You predicted ${r.winner.name} would win</div></div>`
-        : `<div class="my-result-card wrong"><div class="my-result-icon">❌</div><div class="my-result-text">Wrong Pick</div><div class="my-result-sub">You voted for ${myVoteNow==='a'?r.sA.co.name:r.sB.co.name}</div></div>`)
-    : `<div class="my-result-card novote"><div class="my-result-icon">😶</div><div class="my-result-text">No Vote Recorded</div><div class="my-result-sub">No points this round</div></div>`;
-
-  // Score comparison
-  const sWin = r.sA.id===r.winner.id ? r.sA : r.sB;
-  const sLose= r.sA.id===r.winner.id ? r.sB : r.sA;
-
+function renderResults(){
+  const r=S?.lastResult;
+  if(!r) return;
+  const cond=r.condition;
+  const myVoteNow=myVote||S.myVote;
+  const myCorrect=myVoteNow?(myVoteNow==='a'?r.sA.id===r.winner.id:r.sB.id===r.winner.id):null;
+  const sWin=r.sA.id===r.winner.id?r.sA:r.sB;
+  const sLose=r.sA.id===r.winner.id?r.sB:r.sA;
+  const myCard=myVoteNow
+    ?(myCorrect
+      ?`<div class="my-result correct"><div class="mr-icon">🎉</div><div class="mr-text">CORRECT! +1 POINT</div><div class="mr-sub">You predicted ${r.winner.name}</div></div>`
+      :`<div class="my-result wrong"><div class="mr-icon">❌</div><div class="mr-text">Wrong Pick</div><div class="mr-sub">You voted for ${myVoteNow==='a'?r.sA.co.name:r.sB.co.name}</div></div>`)
+    :`<div class="my-result novote"><div class="mr-icon">😶</div><div class="mr-text">No Vote</div><div class="mr-sub">No points this round</div></div>`;
   document.getElementById('main').innerHTML=`
-    <div class="result-win">
-      <div class="result-win-label">🏆 WINNER</div>
-      <div class="result-win-name"><span style="font-size:38px">${r.winner.emoji}</span>${r.winner.name}</div>
-      <div class="result-win-sub">def. ${r.loser.name} (${r.winner.total} – ${r.loser.total})</div>
+    <div class="result-winner">
+      <div class="rw-label">🏆 WINNER</div>
+      <div class="rw-name"><span style="font-size:34px">${r.winner.emoji}</span>${r.winner.name}</div>
+      <div class="rw-sub">defeated ${r.loser.name}</div>
     </div>
-    ${myResultCard}
-    <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--green);text-align:center;font-weight:700">🔓 STRATEGIES REVEALED</div>
-    <div class="co-compact">
-      <div class="co-emoji-sm">${r.winner.emoji}</div>
-      <div class="co-info"><div class="co-name-sm">${r.winner.name} 🏆</div><div class="stag ${sc(r.winner.strategy)}">${r.winner.strategy}</div></div>
-    </div>
-    <div class="co-compact" style="opacity:0.6">
-      <div class="co-emoji-sm">${r.loser.emoji}</div>
-      <div class="co-info"><div class="co-name-sm">${r.loser.name}</div><div class="stag ${sc(r.loser.strategy)}">${r.loser.strategy}</div></div>
-    </div>
-    <div class="cond-card" style="background:linear-gradient(135deg,${cond.color}0c,transparent);border:1px solid ${cond.color}28;border-radius:var(--r);padding:12px 14px;display:flex;align-items:flex-start;gap:12px">
-      <div style="font-size:26px;flex-shrink:0">${cond.icon}</div>
-      <div><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--t3);margin-bottom:2px">Market Condition</div><div style="font-family:'Russo One',sans-serif;font-size:16px;margin-bottom:3px;color:${cond.color}">${cond.name}</div><div style="font-family:'Barlow',sans-serif;font-size:12px;color:var(--t2);line-height:1.5">${cond.description}</div></div>
-    </div>
-    <div class="score-section">
-      <div class="score-title">📊 SCORE BREAKDOWN</div>
-      <div class="score-compare">
-        <div class="score-col"><div class="score-co-name">${sWin.co.emoji} ${sWin.co.name}</div><div class="score-total-big winner-score">${sWin.total}</div></div>
-        <div class="score-vs">VS</div>
-        <div class="score-col"><div class="score-co-name">${sLose.co.emoji} ${sLose.co.name}</div><div class="score-total-big loser-score">${sLose.total}</div></div>
+    ${myCard}
+    <div class="sec-label" style="color:var(--green)">🔓 STRATEGIES REVEALED</div>
+    <div style="display:flex;gap:8px">
+      <div style="flex:1;background:var(--bg3);border:2px solid rgba(245,200,66,0.3);border-radius:var(--r);padding:12px;text-align:center">
+        <div style="font-size:26px">${r.winner.emoji}</div>
+        <div style="font-family:'Russo One',sans-serif;font-size:12px;margin:4px 0">${r.winner.name} 🏆</div>
+        <div class="stag ${sc(r.winner.strategy)}">${r.winner.strategy}</div>
+      </div>
+      <div style="flex:1;background:var(--bg3);border:1px solid var(--b2);border-radius:var(--r);padding:12px;text-align:center;opacity:0.6">
+        <div style="font-size:26px">${r.loser.emoji}</div>
+        <div style="font-family:'Russo One',sans-serif;font-size:12px;margin:4px 0">${r.loser.name}</div>
+        <div class="stag ${sc(r.loser.strategy)}">${r.loser.strategy}</div>
       </div>
     </div>
-    <div class="expl-card"><div class="expl-label">📖 ANALYSIS</div><div class="expl-text">${r.explanation}</div></div>
-    ${renderLBMini()}
-    <div style="background:var(--bg3);border:1px solid var(--b);border-radius:var(--r);padding:12px 14px;text-align:center;font-size:13px;color:var(--t3)">Waiting for teacher to advance to next matchup...</div>`;
+    <div class="score-card">
+      <div class="sc-title">📊 FINAL SCORES</div>
+      <div class="sc-row">
+        <div class="sc-col"><div class="sc-name">${sWin.co.emoji} ${sWin.co.name}</div><div class="sc-num">${sWin.total}</div></div>
+        <div class="sc-vs">VS</div>
+        <div class="sc-col"><div class="sc-name">${sLose.co.emoji} ${sLose.co.name}</div><div class="sc-num dim">${sLose.total}</div></div>
+      </div>
+    </div>
+    <div class="analysis-card"><div class="an-label">📖 ANALYSIS</div><div class="an-text">${r.explanation}</div></div>
+    ${lbMini()}
+    <div style="text-align:center;font-size:12px;color:var(--t3);padding:6px 0">Waiting for next matchup...</div>`;
 }
 
-// ── CHAMPION ───────────────────────────────────────────────────
-function renderChampion() {
-  const r = S?.lastResult;
-  const winner = r?.winner;
-  const sorted = [...(S?.teams||[])].sort((a,b)=>b.points-a.points);
-  const medals = ['🥇','🥈','🥉'];
-  const myTeam = sorted.find(t=>t.id===myTeamId);
-  const myRank  = sorted.indexOf(myTeam)+1;
-  const lbH = sorted.map((t,i)=>`<div class="lb-row ${i===0?'g1':i===1?'g2':i===2?'g3':''}">
-    <div class="lb-rank">${medals[i]||i+1}</div>
-    <div class="lb-dot" style="background:${t.color}"></div>
-    <div class="lb-name" style="${t.id===myTeamId?'color:var(--gold)':''}">${t.name}${t.id===myTeamId?' (you)':''}</div>
-    <div class="lb-pts">${t.points}</div>
-  </div>`).join('');
+function renderChampion(){
+  const r=S?.lastResult;
+  const winner=r?.winner;
+  const sorted=[...(S?.teams||[])].sort((a,b)=>b.points-a.points);
+  const medals=['🥇','🥈','🥉'];
+  const myTeam=sorted.find(t=>t.id===myTeamId);
+  const myRank=sorted.indexOf(myTeam)+1;
   document.getElementById('main').innerHTML=`
     <div class="champ">
       <div class="ch-crown">👑</div>
       <div class="ch-label">TOURNAMENT CHAMPION</div>
-      ${winner?`<div class="ch-name"><span style="font-size:50px">${winner.emoji}</span>${winner.name}</div><div class="stag ${sc(winner.strategy)}" style="font-size:12px;padding:5px 14px">${winner.strategy}</div>`:''}
+      ${winner?`<div class="ch-name"><span style="font-size:44px">${winner.emoji}</span>${winner.name}</div><div class="stag ${sc(winner.strategy)}" style="font-size:12px;padding:5px 14px;margin-top:4px">${winner.strategy}</div>`:''}
     </div>
-    ${myTeam?`<div class="my-result-card ${myRank===1?'correct':myRank<=2?'novote':'wrong'}" style="text-align:center"><div class="my-result-icon">${medals[myRank-1]||'🏅'}</div><div class="my-result-text">YOUR TEAM: #${myRank}</div><div class="my-result-sub">${myTeam.name} · ${myTeam.points} pts · ${myTeam.correctVotes}/${myTeam.totalVotes} correct</div></div>`:''}
-    <div class="lb-card"><div class="lb-title">🏆 FINAL STANDINGS</div>${lbH}</div>`;
+    ${myTeam?`<div class="my-result ${myRank===1?'correct':myRank<=3?'novote':'wrong'}"><div class="mr-icon">${medals[myRank-1]||'🏅'}</div><div class="mr-text">YOUR TEAM: RANK #${myRank}</div><div class="mr-sub">${myTeam.name} · ${myTeam.points} pts</div></div>`:''}
+    ${lbMini()}`;
   launchConfetti();
 }
 
-// ── HELPERS ────────────────────────────────────────────────────
-function renderWait(icon, title, sub) {
+function renderWait(icon,title,sub){
   document.getElementById('main').innerHTML=`<div class="wait-screen"><div class="wait-icon">${icon}</div><div class="wait-title">${title}</div><p class="wait-sub">${sub}</p></div>`;
 }
-function renderLBMini() {
-  const sorted = [...(S?.teams||[])].sort((a,b)=>b.points-a.points);
-  const medals = ['🥇','🥈','🥉'];
-  return `<div class="lb-card"><div class="lb-title">🏆 LEADERBOARD</div>${sorted.map((t,i)=>`<div class="lb-row ${i===0?'g1':i===1?'g2':i===2?'g3':''}"><div class="lb-rank">${medals[i]||i+1}</div><div class="lb-dot" style="background:${t.color}"></div><div class="lb-name" style="${t.id===myTeamId?'color:var(--gold)':''}">${t.name}${t.id===myTeamId?' ←':''}</div><div class="lb-pts">${t.points}</div></div>`).join('')}</div>`;
+function lbMini(){
+  const sorted=[...(S?.teams||[])].sort((a,b)=>b.points-a.points);
+  const medals=['🥇','🥈','🥉'];
+  return `<div class="lb-card"><div class="lb-title">🏆 LEADERBOARD</div>${sorted.map((t,i)=>`<div class="lb-row ${i===0?'g1':i===1?'g2':i===2?'g3':''}"><div class="lb-rank">${medals[i]||i+1}</div><div class="lb-dot" style="background:${t.color}"></div><div class="lb-name" style="${t.id===myTeamId?'color:var(--gold)':''}">${t.name}${t.id===myTeamId?' ◀':''}</div><div class="lb-pts">${t.points}</div></div>`).join('')}</div>`;
 }
-function launchConfetti() {
+function launchConfetti(){
   const colors=['#FF6B35','#F5C842','#3B7FE8','#10B981','#EC4899','#A855F7'];
   const c=document.createElement('div');c.className='confetti-cnt';document.body.appendChild(c);
   for(let i=0;i<60;i++){const p=document.createElement('div');p.className='confetti-p';p.style.left=Math.random()*100+'vw';p.style.background=colors[Math.floor(Math.random()*colors.length)];p.style.width=(Math.random()*10+5)+'px';p.style.height=(Math.random()*10+5)+'px';p.style.borderRadius=Math.random()>.5?'50%':'2px';p.style.animationDuration=(Math.random()*3+2)+'s';p.style.animationDelay=(Math.random()*2)+'s';c.appendChild(p);}
